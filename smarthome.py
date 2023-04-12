@@ -9,7 +9,7 @@ root = tk.Tk()
 root.title("Smart Home App")
 root.configure(bg='#1E90FF')
 
-top_banner = tk.Label(root, text="Hello", font=("Helvetica", 18), bg='#1E90FF', fg="white")
+top_banner = tk.Label(root, text="Welcome home", font=("Helvetica", 36), bg='#1E90FF', fg="white")
 top_banner.pack(side="top")
 
 left_frame = tk.Frame(root, bg='#1E90FF')
