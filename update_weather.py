@@ -9,7 +9,7 @@ def update_weather(api_key, city_entry, temp_label, time_label, heating_status_l
     data = get_weather_data(city, api_key)
 
     if 'main' not in data:
-        temp_label.config(text="Error: Invalid city or API key")
+        temp_label.config(text="Error: Invalid city")
         time_label.config(text="")
         heating_status_label.config(text="")
         blinds_status_label.config(text="")
