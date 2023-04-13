@@ -58,18 +58,16 @@ def start_weather():
     update_label.config(text=f"Last update: {local_time_str}")
     root.after(60000, update_weather, api_key, city_entry, temp_label, time_label, heating_status_label, blinds_status_label, root, automation_enabled, light_statuses, light_buttons, light_status_label)
 
-update_button = tk.Button(left_frame, text="Update Weather", command=start_weather, bg='#1E90FF', fg="white")
-update_button.pack()
 update_label = tk.Label(left_frame, text="Last update: never", font=("Helvetica", 12), bg='#1E90FF', fg="white")
 update_label.pack()
 
+weather_button = tk.Button(left_frame, text="Update Weather", command=start_weather, bg='#1E90FF', fg="white")
+weather_button.pack()
 automation_button = tk.Button(left_frame, text="Automation: ON", command=toggle_automation, bg='#1E90FF', fg="white")
 automation_button.pack()
 
 for room in rooms:
-    button = tk.Button(right_frame, text=f"Toggle {room.capitalize()} Light", command=lambda r=
-room: toggle_light(room, light_statuses, light_buttons, light_status_label, automation_enabled, manual_override=False)
-, bg="red", fg="white")
+    button = tk.Button(right_frame, text=f"Toggle {room.capitalize()} Light", command=lambda r=room: toggle_light(r, light_statuses, light_buttons, light_status_label, automation_enabled, manual_override=False), bg="red", fg="white")
     button.pack()
     light_buttons[room] = button
 
