@@ -42,7 +42,7 @@ light_status_label = {}
 light_buttons = {}
 
 automation_enabled = tk.BooleanVar()
-automation_enabled.set(True)  # By default, automation is enabled during the week
+automation_enabled.set(True) 
 
 def toggle_automation():
     automation_enabled.set(not automation_enabled.get())
