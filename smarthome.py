@@ -56,7 +56,7 @@ def start_weather():
     local_time = datetime.now()
     local_time_str = local_time.strftime('%Y-%m-%d %H:%M:%S')
     update_label.config(text=f"Last update: {local_time_str}")
-    root.after(60000, update_weather, api_key, city_entry, temp_label, time_label, heating_status_label, blinds_status_label, root)
+    root.after(60000, update_weather, api_key, city_entry, temp_label, time_label, heating_status_label, blinds_status_label, root, automation_enabled, light_statuses, light_buttons, light_status_label)
 
 update_button = tk.Button(left_frame, text="Update Weather", command=start_weather, bg='#1E90FF', fg="white")
 update_button.pack()
@@ -68,7 +68,8 @@ automation_button.pack()
 
 for room in rooms:
     button = tk.Button(right_frame, text=f"Toggle {room.capitalize()} Light", command=lambda r=
-room: toggle_light(r, light_statuses, light_buttons, light_status_label, automation_enabled), bg="red", fg="white")
+room: toggle_light(room, light_statuses, light_buttons, light_status_label, automation_enabled, manual_override=False)
+, bg="red", fg="white")
     button.pack()
     light_buttons[room] = button
 
