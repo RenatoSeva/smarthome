@@ -53,7 +53,10 @@ def toggle_automation():
 
 def start_weather():
     update_weather(api_key, city_entry, temp_label, time_label, heating_status_label, blinds_status_label, root, automation_enabled, light_statuses, light_buttons, light_status_label)
-    root.after(60000, update_weather, api_key, city_entry, temp_label, time_label, heating_status_label, blinds_status_label, root, automation_enabled, light_statuses, light_buttons, light_status_label)
+    local_time = datetime.now()
+    local_time_str = local_time.strftime('%Y-%m-%d %H:%M:%S')
+    update_label.config(text=f"Last update: {local_time_str}")
+    root.after(60000, update_weather, api_key, city_entry, temp_label, time_label, heating_status_label, blinds_status_label, root)
 
 update_button = tk.Button(left_frame, text="Update Weather", command=start_weather, bg='#1E90FF', fg="white")
 update_button.pack()
