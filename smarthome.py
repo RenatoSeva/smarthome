@@ -12,6 +12,12 @@ root.configure(bg='#1E90FF')
 top_banner = tk.Label(root, text="Welcome home", font=("Helvetica", 36), bg='#1E90FF', fg="white")
 top_banner.pack(side="top")
 
+temp_label = tk.Label(root, text="", font=("Helvetica", 18), bg='#1E90FF', fg="white")
+temp_label.pack()
+
+time_label = tk.Label(root, text="", font=("Helvetica", 18), bg='#1E90FF', fg="white")
+time_label.pack()
+
 left_frame = tk.Frame(root, bg='#1E90FF')
 left_frame.pack(side='left')
 
@@ -20,12 +26,6 @@ city_label.pack()
 
 city_entry = tk.Entry(left_frame)
 city_entry.pack()
-
-temp_label = tk.Label(left_frame, text="", font=("Helvetica", 12), bg='#1E90FF', fg="white")
-temp_label.pack()
-
-time_label = tk.Label(left_frame, text="", font=("Helvetica", 12), bg='#1E90FF', fg="white")
-time_label.pack()
 
 heating_status_label = tk.Label(left_frame, text="", font=("Helvetica", 12), bg='#1E90FF', fg="white")
 heating_status_label.pack()
